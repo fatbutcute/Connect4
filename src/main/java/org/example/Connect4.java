@@ -46,9 +46,13 @@ public class Connect4 {
             if (winner == humanPlayer) {
                 leaderboard.saveWin(humanPlayer.getName()); //Saves the current winner of the game.
             }
+            if (winner == computerPlayer) {
+                leaderboard.saveWin("Gép");
+            }
         } else {
             System.out.println("Döntetlen mérkőzés!");
         }
+
 
         leaderboard.displayHighScores(); // Displays the high score.
     }

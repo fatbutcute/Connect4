@@ -1,10 +1,9 @@
 package org.example;
-
 import java.sql.*;
 
 public class Leaderboard {
     private final String url = "jdbc:mysql://localhost:3306/connect4";
-    private final String user = "gabiszmo"; //
+    private final String user = "root";
     private final String password = "asdfghjkl";
 
     public void saveWin(String playerName) {
@@ -35,3 +34,9 @@ public class Leaderboard {
         }
     }
 }
+
+//mysql -u root -p
+//password: asdfghjkl
+//use connect4;
+//SELECT * FROM leaderboard;
+//
