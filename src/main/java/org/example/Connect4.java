@@ -2,14 +2,11 @@ package org.example;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- * Hello world!
- *
- */
-public class Connect4
-{
+public class Connect4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Leaderboard leaderboard = new Leaderboard();
+
         System.out.print("Adja meg a játékos nevét: ");
         String playerName = scanner.nextLine();
 
@@ -44,9 +41,15 @@ public class Connect4
 
         board.display();
         if (hasWinner) {
-            System.out.println("A nyertes: " + ((currentPlayer == humanPlayer) ? computerPlayer.getName() : humanPlayer.getName()) + "!");
+            Player winner = (currentPlayer == humanPlayer) ? computerPlayer : humanPlayer;
+            System.out.println("A nyertes: " + winner.getName() + "!");
+            if (winner == humanPlayer) {
+                leaderboard.saveWin(humanPlayer.getName()); //Saves the current winner of the game.
+            }
         } else {
             System.out.println("Döntetlen mérkőzés!");
         }
+
+        leaderboard.displayHighScores(); // Displays the high score.
     }
 }
